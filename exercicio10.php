@@ -5,7 +5,7 @@ $acrescimo = readline("Digite % do acressimo em cima da compra: ");
 
 $acrescimo = $acrescimo / 100;
 
-$compraacr = $compra + ($compra * $acrescimo);
+$compraacr = $compra + ($compra * $acrescimo) ;
 
 $compra10x = $compraacr / 10;
 
