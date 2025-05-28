@@ -7,7 +7,7 @@ $desconto = $desconto / 100;
 
 $produtodes = $produto * $desconto;
 
-echo "O valor original do produto fica R$ $produto\n"; 
+echo "O valor original do produto fica R$ $produto\n "; 
 echo "O produto com o desconto fica R$ $produtodes"; 
 
 ?>
