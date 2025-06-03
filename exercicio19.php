@@ -1,6 +1,6 @@
 <?php
 do{
-echo "escolha uma das opções:\n1-Somar dois números\n2-Subtrair dois números\n3-Verificar se um número é par ou ímpar\n 4-Sair\n";
+echo "escolha uma das opções:\n\n1-Somar dois números\n2-Subtrair dois números\n3-Verificar se um número é par ou ímpar\n4-Sair\n\n";
 $caso = readline("Qual opção deseja escolher?: ");
 
 
