@@ -2,32 +2,52 @@
 
 $alunos = [];
 
-echo "escolha uma das opções abaixo!\n1 - Adicionar nota\n2 - mostrar alunos\n";
-
 do{
-    $terminal = readline("Digite qual opção deseja executar: ");
-        switch($terminal){
-            case 1:
-                $aluno = readline("Digite o nome do aluno: ");
-                $nota1 = readline ("Digite o valor da primeira nota: ");
-                $nota2 = readline ("Digite o valor da segunda nota: ");
-                $nota3 = readline ("Digite o valor da terceira nota: ");
-                if (array_key_exists($aluno ,$alunos)){
-                    echo "esse aluno ja existe! Se o aluno tem o mesmo nome digite o sobrenome!\n";
-                }
-                else{
-                    $alunos[$aluno] = ["nota1" => (float)$nota1, "nota2" => (float)$nota2, "nota3" => (float)$nota3];
-                }
-                break;
-            
-            case 2:
-            $soma = array_sum($aluno);
-            $media = $soma / 3;
-            foreach($alunos as $aluno => $nota1, $nota2, $nota3)
-            echo "nome:$aluno\n%nota:$nota1, $nota2, $nota3";
-            }
-}    
-}
-while($terminal != 3);
+    echo "\nMenu:\n1. Adicionar aluno\n2. Listar alunos\n3. Sair\n";
 
+    $terminal = readline("Escolha uma opção: ");
+switch($terminal){
+    case 1:
+        $nome = readline("Digite o nome do aluno: ");
+
+        $notas = [];
+        for ($i = 1; $i <= 3; $i++) {
+            $nota = (float) readline("Digite a nota $i: ");
+            $notas[] = $nota;
+        }
+
+        $alunos[] = [
+            "nome" => $nome,
+            "notas" => $notas
+        ];
+
+        echo "Aluno adicionado com sucesso!\n";
+        break;
+     case 2:
+        if (empty($alunos)) {
+            echo "Nenhum aluno cadastrado ainda.\n";
+        } else {
+            echo "\nLista de Alunos:\n";
+            foreach ($alunos as $aluno) {
+                $nome = $aluno["nome"];
+                $notas = $aluno["notas"];
+                $media = array_sum($notas) / count($notas);
+
+                echo "Nome: $nome\n";
+                echo "Notas: " . implode(", ", $notas) . "\n";
+                echo "Média: " . number_format($media, 2) . "\n\n";
+            }
+        }
+        break;
+
+    case 3:
+        echo "Encerrando o programa.\n";
+        break;
+
+    default: 
+        echo "Opção inválida. Tente novamente.\n";
+        break;
+    }
+}
+while($terminal != 3)
 ?>
